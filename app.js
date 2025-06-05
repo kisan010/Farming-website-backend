@@ -13,14 +13,15 @@ const userRouter=require('./routes/userRouter');
 var app = express();
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://farming-website-three.vercel.app/"
+    "https://farming-website-three.vercel.app" 
 ];
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-app.use(cookieParser());
 app.use(cors({origin:allowedOrigins, credentials: true}))
+app.use(cookieParser());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
